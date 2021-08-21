@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AyarlarMigration extends Migration
+class AyarsMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AyarlarMigration extends Migration
      */
     public function up()
     {
-        Schema::create('ayarlar', function (Blueprint $table) {
+        Schema::create('ayars', function (Blueprint $table) {
             $table->id();
             $table->string("SiteUrl")->nullable();
             $table->string("Title");
@@ -28,13 +28,15 @@ class AyarlarMigration extends Migration
             $table->string("Il");
             $table->string("Ilce");
             $table->string("Mesai");
-            $table->string("SmtpHost");
+            $table->string("SmtpHost");          
             $table->string("SmtpUser");
-            $table->string("SmtpPasswprd");
+            $table->string("SmtpPassword");
+            $table->string("SmtpPort");         
             $table->string("SmtpSecure");
             $table->string("Facebook")->nullable();
             $table->string("Twitter")->nullable();
             $table->string("Instgram")->nullable();
+            $table->string("Youtube")->nullable();
             $table->string("Google")->nullable();
             $table->string("Recaptha")->nullable();
             $table->string("Map")->nullable();
@@ -50,6 +52,6 @@ class AyarlarMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ayarlar');
+        Schema::dropIfExists('ayars');
     }
 }

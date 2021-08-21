@@ -114,11 +114,11 @@
         </a>
         <div id="collapsePagess" class="collapse" aria-labelledby="headingPagess" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">          
-            <a class="collapse-item" href="login.html">Genel Ayarları</a>
-            <a class="collapse-item" href="register.html">İletişim Ayarları</a>
-            <a class="collapse-item" href="login.html">Api Ayarları</a>
-            <a class="collapse-item" href="register.html">Sosyal Medya Ayarları</a>
-            <a class="collapse-item" href="login.html">Mail Ayarları</a>          
+            <a class="collapse-item" href="/ayarlar-genel">Genel Ayarları</a>
+            <a class="collapse-item" href="/ayarlar-iletisim">İletişim Ayarları</a>
+            <a class="collapse-item" href="/ayarlar-api">Api Ayarları</a>
+            <a class="collapse-item" href="/ayarlar-medya">Sosyal Medya Ayarları</a>
+            <a class="collapse-item" href="/ayarlar-mail">Mail Ayarları</a>          
           </div>
         </div>
       </li>
