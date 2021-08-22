@@ -28,3 +28,8 @@ Route::get('ayarlar-iletisim', [AyarlarController::class, 'iletisim_ayarlar']);
 Route::get('ayarlar-api', [AyarlarController::class, 'api_ayarlar']);
 Route::get('ayarlar-medya', [AyarlarController::class, 'medya_ayarlar']);
 Route::get('ayarlar-mail', [AyarlarController::class, 'mail_ayarlar']);
+
+
+Route::get('ayarlar-genel/{id}', [AyarlarController::class, 'edit']);
+Route::PUT('ayarlar-genel/{id}/update', [AyarlarController::class, 'update'])->name('update');
+

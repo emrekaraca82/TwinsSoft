@@ -8,9 +8,25 @@ use Illuminate\Http\Request;
 
 class AyarlarController extends Controller
 {   
+
+    public function edit($id)
+    {
+        $genelayar = Ayar::find($id) ?? abort(404,'Sayfa bulunamadı');
+        return view("admin.ayarlar.update-genel-ayar",compact('genelayar'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $genelayar = Ayar::find($id) ?? abort(404,'Sayfa bulunamadı');
+
+        Ayar::where('id',$id)->update($request->except(['_method','_token']));
+
+        return redirect()->route("dashboard")->withSuccess('Başarılı');
+    }
+
     public function genel_ayarlar()
     {
-        $genelayar = Ayar::get();
+        $genelayar = Ayar::get() ?? abort(404,'Sayfa bulunamadı');
         return view("admin.ayarlar.genel-ayarlar",compact('genelayar'));
     }
 
