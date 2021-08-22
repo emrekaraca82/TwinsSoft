@@ -24,12 +24,19 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::get('ayarlar-genel', [AyarlarController::class, 'genel_ayarlar']);
-Route::get('ayarlar-iletisim', [AyarlarController::class, 'iletisim_ayarlar']);
-Route::get('ayarlar-api', [AyarlarController::class, 'api_ayarlar']);
-Route::get('ayarlar-medya', [AyarlarController::class, 'medya_ayarlar']);
-Route::get('ayarlar-mail', [AyarlarController::class, 'mail_ayarlar']);
-
-
-Route::get('ayarlar-genel/{id}', [AyarlarController::class, 'edit']);
 Route::PUT('ayarlar-genel/{id}/update', [AyarlarController::class, 'update'])->name('update');
+
+Route::get('ayarlar-iletisim', [AyarlarController::class, 'iletisim_ayarlar']);
+Route::PUT('ayarlar-iletisim/{id}/update', [AyarlarController::class, 'update'])->name('update');
+
+Route::get('ayarlar-api', [AyarlarController::class, 'api_ayarlar']);
+Route::PUT('ayarlar-api/{id}/update', [AyarlarController::class, 'update'])->name('update');
+
+Route::get('ayarlar-medya', [AyarlarController::class, 'medya_ayarlar']);
+Route::PUT('ayarlar-medya/{id}/update', [AyarlarController::class, 'update'])->name('update');
+
+Route::get('ayarlar-mail', [AyarlarController::class, 'mail_ayarlar']);
+Route::PUT('ayarlar-mail/{id}/update', [AyarlarController::class, 'update'])->name('update');
+
+
 
