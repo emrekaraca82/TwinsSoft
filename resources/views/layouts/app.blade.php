@@ -27,7 +27,7 @@
 
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}" defer></script>
-
+  <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
 </head>
 
 <body id="page-top">
@@ -73,7 +73,7 @@
 
       <!-- Nav Item - Kurumsal -->
       <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/kurumsal">
           <i class="fa fa-university mr-3"></i>
           <span>Kurumsal</span></a>
       </li>

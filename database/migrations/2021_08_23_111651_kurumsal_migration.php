@@ -13,11 +13,11 @@ class KurumsalMigration extends Migration
      */
     public function up()
     {
-        Schema::create('kurumsal', function (Blueprint $table) {
+        Schema::create('kurumsals', function (Blueprint $table) {
             $table->id();
             $table->string("kurumsalBaslik");
             $table->string("kurumsalGorsel");
-            $table->longText("kurumsalIcerik");          
+            $table->longText("kurumsalIcerik");    
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class KurumsalMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kurumsal');
+        Schema::dropIfExists('kurumsals');
     }
 }

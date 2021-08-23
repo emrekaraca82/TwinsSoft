@@ -4,7 +4,7 @@
 
 <div class="row main-content">
 	<!--Content right-->
-	<table class="table">
+<table class="table content">
   <thead>
     <tr>
       <th scope="col">#</th>
