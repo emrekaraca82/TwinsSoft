@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AyarlarController;
 use App\Http\Controllers\Admin\KurumsalController;
+use App\Http\Controllers\Admin\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +43,6 @@ Route::PUT('ayarlar-mail/{id}/update', [AyarlarController::class, 'update'])->na
 Route::get('kurumsal', [KurumsalController::class, 'index']);
 Route::PUT('kurumsal/{id}/update', [KurumsalController::class, 'update'])->name('update');
 
-
-
+//slider
+route::get('slider/{id}',[SliderController::class, 'destroy'])->whereNumber('id')->name('slider.destroy');
+Route::resource('slider',SliderController::class);

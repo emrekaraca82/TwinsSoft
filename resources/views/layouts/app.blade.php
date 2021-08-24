@@ -100,8 +100,8 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">          
-            <a class="collapse-item" href="login.html">Slider Ekle</a>
-            <a class="collapse-item" href="register.html">Tüm Slider</a>
+            <a class="collapse-item" href="/slider/create">Slider Ekle</a>
+            <a class="collapse-item" href="/slider">Tüm Slider</a>
           </div>
         </div>
       </li>

@@ -13,7 +13,7 @@ class SliderMigration extends Migration
      */
     public function up()
     {
-        Schema::create('slider', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->string("SliderBaslik");
             $table->string("SliderLink");
@@ -21,7 +21,6 @@ class SliderMigration extends Migration
             $table->string("SliderGorsel");
             $table->integer("SliderSira");
             $table->tinyInteger("SliderDurum");
-            $table->datetime("SliderKayit");
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ class SliderMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slider');
+        Schema::dropIfExists('sliders');
     }
 }
