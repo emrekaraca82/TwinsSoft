@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AyarlarController;
 use App\Http\Controllers\Admin\KurumsalController;
 use App\Http\Controllers\Admin\SliderController;
-
+use App\Http\Controllers\Admin\ContentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,3 +46,7 @@ Route::PUT('kurumsal/{id}/update', [KurumsalController::class, 'update'])->name(
 //slider
 route::get('slider/{id}',[SliderController::class, 'destroy'])->whereNumber('id')->name('slider.destroy');
 Route::resource('slider',SliderController::class);
+
+//content
+route::get('content/{id}',[ContentController::class, 'destroy'])->whereNumber('id')->name('content.destroy');
+Route::resource('content',ContentController::class);

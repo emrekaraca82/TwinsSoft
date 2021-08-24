@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class IcerikMigration extends Migration
+class ContentsMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class IcerikMigration extends Migration
      */
     public function up()
     {
-        Schema::create('icerik', function (Blueprint $table) {
+        Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->string("icerikBaslik");
-            $table->string("icerikLink");
+            $table->string("icerikLink")->nullable();
             $table->longText("icerikDetay");
-            $table->string("icerikKeyword");
+            $table->string("icerikKeyword")->nullable();
             $table->string("icerikGorsel");
             $table->integer("icerikSira");
-            $table->tinyInteger("icerikDurum");
-            $table->datetime("icerikKayit");
+            $table->tinyInteger("icerikDurum");     
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class IcerikMigration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('icerik');
+        Schema::dropIfExists('contents');
     }
 }

@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Slider;
+use App\Models\Content;
 use Illuminate\Support\Str;
 
-class SliderController extends Controller
+class ContentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliderList = Slider::get() ?? abort(404,'Sayfa bulunamadı');
-        return view("admin.slider.index",compact('sliderList'));
+        $contentList = Content::get() ?? abort(404,'Sayfa bulunamadı');
+        return view('admin.content.index',compact('contentList'));
     }
 
     /**
@@ -26,8 +26,8 @@ class SliderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {      
-        return view('admin.slider.create');     
+    {
+        return view('admin.content.create');     
     }
 
     /**
@@ -38,17 +38,17 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->hasFile('SliderGorsel')){
-            $fileName = Str::slug($request->SliderBaslik).'.'.$request->SliderGorsel->extension();
-            $fileNameWithUpload = 'uploads/slider/'.$fileName;
-            $request->SliderGorsel->move(public_path('uploads/slider'),$fileName);
+        if($request->hasFile('icerikGorsel')){
+            $fileName = Str::slug($request->icerikBaslik).'.'.$request->icerikGorsel->extension();
+            $fileNameWithUpload = 'uploads/content/'.$fileName;
+            $request->icerikGorsel->move(public_path('uploads/content'),$fileName);
             $request->merge([
-                'SliderGorsel'=>$fileNameWithUpload
+                'icerikGorsel'=>$fileNameWithUpload
             ]);
         }
 
-        Slider::create($request->post());
-        return redirect()->route('slider.index')->withSuccess('Slider Başarıyıla Eklendi');
+        Content::create($request->post());
+        return redirect()->route('content.index')->withSuccess('İçerik Başarıyıla Eklendi');
     }
 
     /**
@@ -70,8 +70,8 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        $slider = Slider::find($id) ?? abort(404,'Quiz Bulunamadı');  
-        return view('admin.slider.edit',compact('slider'));
+        $content = Content::find($id) ?? abort(404,'Quiz Bulunamadı');  
+        return view('admin.content.edit',compact('content'));
     }
 
     /**
@@ -83,17 +83,17 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->hasFile('SliderGorsel')){
-            $fileName = Str::slug($request->SliderBaslik).'.'.$request->SliderGorsel->extension();
-            $fileNameWithUpload = 'uploads/slider/'.$fileName;
-            $request->SliderGorsel->move(public_path('uploads/slider'),$fileName);
+        if($request->hasFile('icerikGorsel')){
+            $fileName = Str::slug($request->icerikBaslik).'.'.$request->icerikGorsel->extension();
+            $fileNameWithUpload = 'uploads/content/'.$fileName;
+            $request->icerikGorsel->move(public_path('uploads/content'),$fileName);
             $request->merge([
-                'SliderGorsel'=>$fileNameWithUpload
+                'icerikGorsel'=>$fileNameWithUpload
             ]);
         }
 
-        Slider::find($id)->first()->update($request->post());
-        return redirect()->route('slider.index',$id)->withSuccess('Slider başarıyla Güncellendi');
+        Content::find($id)->first()->update($request->post());
+        return redirect()->route('content.index',$id)->withSuccess('İçerik başarıyla Güncellendi');
     }
 
     /**
@@ -103,8 +103,8 @@ class SliderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    { 
-        Slider::find($id)->delete();
-        return redirect()->route('slider.index')->withSuccess('İlgili veri başarıyla silindi');
+    {
+        Content::find($id)->delete();
+        return redirect()->route('content.index')->withSuccess('İlgili veri başarıyla silindi');
     }
 }

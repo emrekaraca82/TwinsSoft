@@ -86,8 +86,8 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">          
-            <a class="collapse-item" href="utilities-color.html">İçerik Ekle</a>
-            <a class="collapse-item" href="utilities-border.html">Tüm İçerik</a>        
+            <a class="collapse-item" href="/content/create">İçerik Ekle</a>
+            <a class="collapse-item" href="/content">Tüm İçerik</a>        
           </div>
         </div>
       </li>
