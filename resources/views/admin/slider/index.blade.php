@@ -35,15 +35,19 @@
       </td>   
       <td>{{$slider->created_at ? $slider->created_at->diffForHumans() : '-'}}</td>      
 	  <td>
-      <a href="{{route('slider.edit',$slider->id)}}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-      <a href="{{route('slider.destroy',$slider->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
+      <form method="POST" action="{{ route('slider.destroy', $slider->id) }}">
+        @csrf
+        <input name="_method" type="hidden" value="DELETE">
+        <a href="{{route('slider.edit',$slider->id)}}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
+        <a href="{{route('slider.destroy',$slider->id)}}"  data-toggle="tooltip" title='Delete' class="btn btn-sm btn-danger btn-flat show_confirm"><i class="fa fa-times"></i></a>
+      </form>
     </td>
+    
     </tr>
    
   </tbody>
   @endforeach
 </table>
 </div>
-
 
 </x-app-layout>
