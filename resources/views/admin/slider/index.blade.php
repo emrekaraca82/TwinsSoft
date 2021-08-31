@@ -3,10 +3,13 @@
  <!--Main Content-->
 	<!--Content right-->
 	<div class="col-md-12 col-sm-9 col-xs-12 content pt-1 pl-0">
-		
+ 
 		<div class="row mt-3">
 			<div class="col-sm-12">
-				<!--Datatable-->
+
+        <!--SweetAlert Başarılı Mesaj-->
+        @include('sweetalert::alert')
+
 				<div class="mt-1 mb-3 p-3 button-container bg-white border shadow-sm">
 					<div class="table-responsive">
 						<table id="example" class="table table-striped table-bordered">
@@ -37,7 +40,8 @@
                             @break     
                         @endswitch
                       </td>   
-                      <td>{{$slider->created_at ? $slider->created_at->diffForHumans() : '-'}}</td>      
+                      <td>{{$slider->created_at ? $slider->created_at->diffForHumans() : '-' }} </td>  
+                        
                     <td>
                       <form method="POST" action="{{ route('slider.destroy', $slider->id) }}">
                         @csrf

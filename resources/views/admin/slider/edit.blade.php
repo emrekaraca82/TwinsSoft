@@ -2,7 +2,7 @@
 <x-slot name="header"></x-slot>
 	<!--Content right-->
     <div class="col-md-12 col-sm-9 col-xs-12 content pt-2 pl-2">
-        <div class="col-sm-12">
+        <div class="col-sm-12">    
 	    <!--Default bootstrap 4 validation-->
         <div class="mt-1 mb-4 p-3 button-container bg-white border shadow-sm">
         <form method="POST" action="{{route('slider.update',[$slider->id])}}" enctype="multipart/form-data">

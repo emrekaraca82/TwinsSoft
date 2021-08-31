@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+
 
 class SliderController extends Controller
 {
@@ -70,7 +72,7 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        $slider = Slider::find($id) ?? abort(404,'Quiz Bulunamadı');  
+        $slider = Slider::find($id) ?? abort(404,'Sayfa bulunamadı');
         return view('admin.slider.edit',compact('slider'));
     }
 
@@ -82,18 +84,25 @@ class SliderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        if($request->hasFile('SliderGorsel')){
+    {          
+        if($request->hasFile('SliderGorsel'))
+        {
+            $oldimage = 'uploads/slider/'.$request->SliderGorsel;
+            if(File::exists($oldimage))
+            {
+                File::delete($oldimage);
+            }
             $fileName = Str::slug($request->SliderBaslik).'.'.$request->SliderGorsel->extension();
             $fileNameWithUpload = 'uploads/slider/'.$fileName;
-            $request->SliderGorsel->move(public_path('uploads/slider'),$fileName);
+            $request->SliderGorsel->move(public_path('uploads/slider/'),$fileName);
             $request->merge([
                 'SliderGorsel'=>$fileNameWithUpload
             ]);
         }
 
-        Slider::find($id)->first()->update($request->post());
-        return redirect()->route('slider.index',$id)->withSuccess('Slider başarıyla Güncellendi');
+        Slider::find($id)->first()->update($request->post());    
+        return redirect()->route('slider.index',$id)->with('success', 'Güncelleme İşlemi Başarılı');
+       
     }
 
     /**
@@ -104,7 +113,13 @@ class SliderController extends Controller
      */
     public function destroy($id)
     { 
-        Slider::find($id)->delete();
-        return redirect()->route('slider.index')->withSuccess('İlgili veri başarıyla silindi');
+        $slider=Slider::find($id);
+        $oldimage = 'uploads/slider/'.$slider->SliderGorsel;
+        if(File::exists($oldimage))
+        {
+            File::delete($oldimage);
+        }
+        $slider->delete();
+        return redirect()->route('slider.index')->withSuccess('İlgili veri başarıyla silindi');  
     }
 }
