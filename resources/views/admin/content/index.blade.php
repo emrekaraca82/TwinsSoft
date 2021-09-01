@@ -6,6 +6,8 @@
 		
 		<div class="row mt-3">
 			<div class="col-sm-12">
+                <!--SweetAlert Başarılı Mesaj-->
+                @include('sweetalert::alert')
 				<!--Datatable-->
 				<div class="mt-1 mb-3 p-3 button-container bg-white border shadow-sm">
 					<div class="table-responsive">

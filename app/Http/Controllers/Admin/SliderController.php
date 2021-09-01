@@ -8,7 +8,6 @@ use App\Models\Slider;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 
-
 class SliderController extends Controller
 {
     /**
@@ -50,7 +49,7 @@ class SliderController extends Controller
         }
 
         Slider::create($request->post());
-        return redirect()->route('slider.index')->withSuccess('Slider Başarıyıla Eklendi');
+        return redirect()->route('slider.index')->with('success', 'Ekleme İşlemi Başarılı'); 
     }
 
     /**
@@ -120,6 +119,6 @@ class SliderController extends Controller
             File::delete($oldimage);
         }
         $slider->delete();
-        return redirect()->route('slider.index')->withSuccess('İlgili veri başarıyla silindi');  
+        return redirect()->route('slider.index')->with('success', 'İlgili Veri Silindi'); 
     }
 }

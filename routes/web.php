@@ -40,7 +40,7 @@ Route::PUT('ayarlar-medya/{id}/update', [AyarlarController::class, 'update'])->n
 Route::get('ayarlar-mail', [AyarlarController::class, 'mail_ayarlar']);
 Route::PUT('ayarlar-mail/{id}/update', [AyarlarController::class, 'update'])->name('update');
 
-Route::get('kurumsal', [KurumsalController::class, 'index']);
+Route::get('kurumsal', [KurumsalController::class, 'index'])->name('kurumsal.index');
 Route::PUT('kurumsal/{id}/update', [KurumsalController::class, 'update'])->name('update');
 
 //slider

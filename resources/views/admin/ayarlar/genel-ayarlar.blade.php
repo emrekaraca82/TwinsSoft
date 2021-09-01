@@ -1,6 +1,6 @@
 <x-app-layout>
 <x-slot name="header"></x-slot>
-   <!--Main Content-->
+<!--Main Content-->
 
 <div class="row main-content">
 	<!--Content right-->

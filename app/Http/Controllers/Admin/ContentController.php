@@ -48,7 +48,7 @@ class ContentController extends Controller
         }
 
         Content::create($request->post());
-        return redirect()->route('content.index')->withSuccess('İçerik Başarıyıla Eklendi');
+        return redirect()->route('content.index')->with('success', 'Ekleme İşlemi Başarılı'); 
     }
 
     /**
@@ -93,7 +93,7 @@ class ContentController extends Controller
         }
 
         Content::find($id)->first()->update($request->post());
-        return redirect()->route('content.index',$id)->withSuccess('İçerik başarıyla Güncellendi');
+        return redirect()->route('content.index',$id)->with('success', 'Güncelleme İşlemi Başarılı');
     }
 
     /**
@@ -105,6 +105,6 @@ class ContentController extends Controller
     public function destroy($id)
     {
         Content::find($id)->delete();
-        return redirect()->route('content.index')->withSuccess('İlgili veri başarıyla silindi');
+        return redirect()->route('content.index')->with('success', 'İlgili Veri Silindi'); 
     }
 }

@@ -13,7 +13,7 @@ class AyarlarController extends Controller
     {
         $genelayar = Ayar::find($id) ?? abort(404,'Sayfa bulunamadı');
         Ayar::where('id',$id)->update($request->except(['_method','_token']));
-        return redirect()->route("dashboard")->withSuccess('Başarılı');
+        return redirect()->route("dashboard")->with('success', 'Güncelleme İşlemi Başarılı');
     }
 
     public function genel_ayarlar()

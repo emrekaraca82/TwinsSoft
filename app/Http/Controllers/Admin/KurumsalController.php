@@ -28,7 +28,7 @@ class KurumsalController extends Controller
             ]);       
         }
         Kurumsal::find($id)->first()->update($request->post());    
-        return redirect()->route("dashboard")->withSuccess('Başarılı');
+        return redirect()->route("kurumsal.index")->with('success', 'Güncelleme İşlemi Başarılı');      
     }
 
 }

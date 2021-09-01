@@ -1,6 +1,9 @@
 <x-app-layout>
 <x-slot name="header"></x-slot>
-   <!--Main Content-->
+<!--Main Content-->
+
+<!--SweetAlert Başarılı Mesaj-->
+@include('sweetalert::alert')
 
 <div class="row main-content">
 	<!--Content right-->
@@ -10,8 +13,7 @@
       <th scope="col">#</th>
       <th scope="col">Baslik</th>   
       <th scope="col">İçerik</th>
-      <th scope="col">Güncelle</th>
-      
+      <th scope="col">Güncelle</th>  
     </tr>
   </thead>
   @foreach($kurumsalList as $kurumsal)		
