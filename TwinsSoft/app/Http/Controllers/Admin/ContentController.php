@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Content;
 use Illuminate\Support\Str;
+use File;
 
 class ContentController extends Controller
 {
@@ -38,7 +39,8 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->hasFile('icerikGorsel')){
+        if($request->hasFile('icerikGorsel'))
+        {
             $fileName = Str::slug($request->icerikBaslik).'.'.$request->icerikGorsel->extension();
             $fileNameWithUpload = 'uploads/content/'.$fileName;
             $request->icerikGorsel->move(public_path('uploads/content'),$fileName);
@@ -83,16 +85,20 @@ class ContentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->hasFile('icerikGorsel')){
+        if($request->hasFile('icerikGorsel'))
+        {
             $fileName = Str::slug($request->icerikBaslik).'.'.$request->icerikGorsel->extension();
             $fileNameWithUpload = 'uploads/content/'.$fileName;
+            if(File::exists($fileNameWithUpload))
+            {
+                File::delete($fileNameWithUpload);
+            }
             $request->icerikGorsel->move(public_path('uploads/content'),$fileName);
             $request->merge([
                 'icerikGorsel'=>$fileNameWithUpload
             ]);
-        }
-
-        Content::find($id)->first()->update($request->post());
+        }    
+        Content::find($id)->update($request->post());
         return redirect()->route('content.index',$id)->with('success', 'Güncelleme İşlemi Başarılı');
     }
 

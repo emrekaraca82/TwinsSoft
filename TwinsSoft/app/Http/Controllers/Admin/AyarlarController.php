@@ -9,40 +9,39 @@ use Illuminate\Http\Request;
 class AyarlarController extends Controller
 {   
 
-    public function update(Request $request,$id)
-    {
-        $genelayar = Ayar::find($id) ?? abort(404,'Sayfa bulunamadı');
-        Ayar::where('id',$id)->update($request->except(['_method','_token']));
+    public function ayarupdate(Request $request)
+    {     
+        Ayar::where('id',1)->update($request->except(['_method','_token']));   
         return redirect()->route("dashboard")->with('success', 'Güncelleme İşlemi Başarılı');
     }
 
     public function genel_ayarlar()
     {
-        $genelayar = Ayar::get() ?? abort(404,'Sayfa bulunamadı');
-        return view("admin.ayarlar.genel-ayarlar",compact('genelayar'));
+        $ayar = Ayar::first() ?? abort(404,'Sayfa bulunamadı');
+        return view("admin.ayarlar.genel-ayarlar",compact('ayar'));
     }
 
     public function iletisim_ayarlar()
     {
-        $genelayar = Ayar::get();
-        return view("admin.ayarlar.iletisim-ayarlar",compact('genelayar'));
+        $ayar = Ayar::first()?? abort(404,'Sayfa bulunamadı');
+        return view("admin.ayarlar.iletisim-ayarlar",compact('ayar'));
     }
 
     public function api_ayarlar()
     {
-        $genelayar = Ayar::get();
-        return view("admin.ayarlar.api-ayarlar",compact('genelayar'));
+        $ayar = Ayar::first()?? abort(404,'Sayfa bulunamadı');
+        return view("admin.ayarlar.api-ayarlar",compact('ayar'));
     }
 
     public function medya_ayarlar()
     {
-        $genelayar = Ayar::get();
-        return view("admin.ayarlar.medya-ayarlar",compact('genelayar'));
+        $ayar = Ayar::first()?? abort(404,'Sayfa bulunamadı');
+        return view("admin.ayarlar.medya-ayarlar",compact('ayar'));
     }
 
     public function mail_ayarlar()
     {
-        $genelayar = Ayar::get();
-        return view("admin.ayarlar.mail-ayarlar",compact('genelayar'));
+        $ayar = Ayar::first()?? abort(404,'Sayfa bulunamadı');
+        return view("admin.ayarlar.mail-ayarlar",compact('ayar'));
     }
 }
