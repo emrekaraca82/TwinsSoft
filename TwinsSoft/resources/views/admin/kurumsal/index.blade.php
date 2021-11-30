@@ -47,8 +47,7 @@
         CKEDITOR.replace( 'kurumsalIcerik' );
       </script>
     </div>
-    <button type="submit" class="btn btn-success">Güncelle</button>
+    <button type="submit" class="btn btn-success">Kaydet</button>
 </form>
-
 
 </x-app-layout>

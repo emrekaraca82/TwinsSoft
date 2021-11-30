@@ -12,7 +12,7 @@
             <div class="form-row">
                 
               <div class="col-md-12 mb-2">           
-                <a href="{{asset($slider->SliderGorsel)}}" type="button" class="btn btn-warning"
+                <a href="{{asset($slider->SliderGorsel)}}" type="button" class="btn btn-info"
                   target="_blank">Görsel Görüntüle</a>             
               </div>
 
